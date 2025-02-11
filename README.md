@@ -3,6 +3,8 @@ Estoy trabajando en un sitio web para la distribuidora de mi cliente,
 La idea es ayudarlo a gestionar de forma más eficiente sus clientes, productos y pedidos, dejando atrás el clásico cuaderno y llevando todo a un entorno digital más organizado.
 
 # Funcionalidades
+Los datos se encuentran en una base de datos MySql y se accede a ella por medio de un backend Java Spring Boot
+
 1-Login: El usuario encargado podra acceder a los datos y funcionalidades por medio de un Login(Correo y contraseña)
 2-Apartado clientes:  El administrador podra cargar nuevos clientes(Nombre y una descripcion) atributos elegidos por el dueño de la distribuidora
                       Podra eliminar los clientes por nombre o a travez de un boton que se ve en cada cliente.
