@@ -1,0 +1,80 @@
+<app-navbar></app-navbar>
+
+
+<div class="cont-general">
+  
+    <!-- Botones -->
+    <div class="botones">
+      <button (click)="ircrearpedido()"  class="btn">Agregar nuevo pedido</button>
+    </div>
+  
+    <div class="cat-pedidos">
+
+         <!-- Categorías de pedidos (como el filtro para ver pedidos según estado, si es necesario) -->
+        <div class="categorias">
+            <h2>Filtrar por:</h2>
+            <ul>
+                <li>
+                     <button class="btn-categoria" (click)="mostrarpedidoporCategoria('pendiente')">
+                         Pendientes
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-categoria" (click)="mostrarpedidoporCategoria('entregado')">
+                        Entregados
+                     </button>
+                </li>
+         
+        </ul>
+        </div>
+    
+      <!-- Sección de Pedidos -->
+      <div class="pedidos">
+        <h2>Pedidos</h2>
+    
+        <!-- Mostrar lista de pedidos -->
+        <div class="pedidos-lista">
+          
+              @if (listapedidosfiltrada.length>0) {
+                  @for (pedido of listapedidosfiltrada; track $index) {
+  
+                      <div  class="pedido-card">
+                          
+                          <h3 >{{obtenerNombreCliente(pedido.clienteId) }}</h3>
+                          <p>Estado: {{pedido.estado}}</p>
+                          
+                          <p>Fecha: {{pedido.fecha | date: 'dd/MM/yyyy'}}</p>
+                          
+                          
+                          <!-- Ver detalles del pedido -->
+                          <button  class="btn-detalles" [routerLink]="['/pedido', pedido.id]">Ver detalles</button>
+                
+                          <!-- Acción para cambiar el estado -->
+                           @if (pedido.estado==='pendiente') {
+                            <button (click)="actualizarestado(pedido.id??0)"  class="btn-cambiar-estado">
+                                Entregado
+                              </button>
+                           }
+                          
+                
+                           @if (pedido.estado==='pendiente') {
+                          <button (click)="eliminarpedido(pedido.id??0)"  class="btn-eliminar">Eliminar pedido</button>
+                           }
+                        </div>
+                  }
+                 
+              }
+            
+          </div>
+          <!-- Mensaje cuando no hay pedidos -->
+          <div >
+              @if (listapedidosfiltrada.length==0) {
+                  <p class="no-pedidos">No existen pedidos en este momento</p>
+              }
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+   

@@ -1,0 +1,97 @@
+.form-container {
+    max-width: 400px;
+    height: 550px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+   
+}
+
+select {
+    font-size: 18px; /* Cambiar tamaño de la fuente */
+    padding: 10px; /* Agregar espacio interno */
+    background-color: #ffffff; /* Cambiar color de fondo */
+    border: 1px solid #ccc; /* Borde del select */
+    border-radius: 4px; /* Bordes redondeados */
+  }
+  
+  /* Estilo para las opciones (option) */
+  option {
+    font-size: 16px; /* Cambiar tamaño de la fuente de las opciones */
+    padding: 10px; /* Agregar espacio interno */
+  }
+  
+  /* Si quieres que el select se vea más grande */
+  select:focus {
+    border-color: #007bff; /* Color del borde cuando está en foco */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra cuando está en foco */
+  }
+
+h2 {
+    text-align: center;
+    color: #1E3A5F;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border 0.3s;
+}
+textarea{
+    resize: none; /* Evita que el usuario pueda cambiar el tamaño */
+    height: 60px; /* Establece una altura fija */
+    overflow-y: auto;
+}
+
+input:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.requerido {
+    color: red;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.btn {
+    width: 100%;
+    padding: 13px;
+    background: #FF9800;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:  0.3s;
+    margin-top: 20px;
+}
+
+.btn:disabled {
+    background-color: #ff990059;
+    cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled) {
+    background-color: #E64A19;
+}

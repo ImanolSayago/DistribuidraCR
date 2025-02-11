@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+
+<form [formGroup]="formulario" action="" (ngSubmit)="editProducto()">
+
+        <h2>Editar el producto:{{produ.nombre}}</h2>
+
+    <div>
+        <label id="precionuevo" for="precionuevo">Ingrese el nuevo precio</label>
+        <input formControlName="precionuevo" type="number">
+    </div>
+
+    <div>
+        <label for="stocknuevo">Ingrese la cantidad nueva en stock</label>
+        <input formControlName="stocknuevo" type="number">
+    </div>
+
+    <button>Editar</button>
+
+</form>

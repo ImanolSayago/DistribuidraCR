@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="cont-general">
+
+    <div class="botones">
+        <button (click)="ircrearclientes()" class="btn">Agregar cliente</button>
+
+        <form [formGroup]="formEliminar" (ngSubmit)="eliminarPorNombre()">
+            <input formControlName="nombre" type="text" placeholder="Nombre del cliente eliminar">
+            <button type="submit" class="btn">Eliminar cliente</button>
+        </form>
+
+    </div>
+    
+    <section class="muestra-clientes">
+        <h2>LISTA CLIENTES</h2>
+        @for (item of listaclientes; track $index) {        
+            <div class="cont-cliente">
+                <p><strong>Nombre cliente:</strong> {{item.nombre}}</p>
+                @if (item.descripcion) {
+                    <p><strong>Descripción:</strong> {{item.descripcion}}</p>
+                }
+                <button (click)="deleteClientes(item.id!)" class="btn-delete">Eliminar cliente</button>
+            </div>
+        }
+    </section>
+    
+</div>

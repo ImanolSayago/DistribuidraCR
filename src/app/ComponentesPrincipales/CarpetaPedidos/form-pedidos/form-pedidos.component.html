@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+
+<form [formGroup]="formulario" (ngSubmit)="enviarPedido()">
+    <div>
+      <label for="cliente">Cliente:</label>
+      <select id="cliente" formControlName="cliente" type="text" required>
+      @for (item of listaClientes; track $index) {
+        <option [value]="item.id">{{item.nombre}}</option>
+      }
+      </select>
+    </div>
+  
+    <div>
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" formControlName="descripcion"></textarea>
+    </div>
+  
+    <h3>Agregar producto al pedido</h3>
+    <div>
+        <label for="productos">Producto:</label>
+        <select id="productos" formControlName="productos" type="text" required>
+        @for (item of listaProductos; track $index) {
+          <option [value]="item.nombre">{{item.nombre}}</option>
+        }
+        </select>
+
+        <label for="cantidadprodu">Cantidad de productos:</label>
+        <input formControlName="cantidadprodu" type="number" id="cantidadprodu"  name="cantidadprodu" required>
+      </div>
+    
+  
+    <button type="button" (click)="agregarproducto()" >Agregar Producto</button>
+    <button type="submit" [disabled]="formulario.invalid">Enviar Pedido</button>
+  </form>

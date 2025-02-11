@@ -1,0 +1,33 @@
+<section class="cont-sesion">
+
+    <div class="titulo">
+        <h1>CR <br> Distribuidora</h1>
+    </div>
+    
+    <form [formGroup]="formulario" (ngSubmit)="onLoginLogout()">
+
+        <div class="login-container">
+            
+
+              <h2>Iniciar Sesión</h2>
+          
+              <div class="input-group">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" formControlName="correo" placeholder="Ingrese su correo" required>
+              </div>
+          
+              <div class="input-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" formControlName="contrasena" placeholder="Ingrese su contraseña" required>
+              </div>
+          
+              <button type="submit" >Ingresar</button>
+            
+        </div>
+
+    </form>
+</section>
+    
+
+ 
+

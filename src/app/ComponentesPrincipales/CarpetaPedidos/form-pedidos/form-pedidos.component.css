@@ -1,0 +1,92 @@
+
+form {
+    max-width: 400px;
+    height: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilos para el título de sección */
+h3 {
+    text-align: center;
+    color: #1E3A5F;
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+/* Contenedor de los campos */
+div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+   
+}
+
+/* Estilos para las etiquetas */
+label {
+    font-size: 25px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+/* Estilos para los select y textarea */
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border 0.3s;
+}
+
+textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border 0.3s;
+    resize: none;
+    height: 60px;
+    overflow-y: auto;
+}
+input{
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border 0.3s;
+}
+
+/* Efecto de foco */
+select:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Contenedor de botones */
+button {
+    width: 100%;
+    padding: 13px;
+    background: #FF9800;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+/* Estilos para botón deshabilitado */
+
+
+/* Estilos para el hover del botón */
+button:hover:not(:disabled) {
+    background-color: #E64A19;
+}

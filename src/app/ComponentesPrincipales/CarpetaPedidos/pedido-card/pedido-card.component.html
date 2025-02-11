@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+
+<section>
+    <h1>Detalles del pedido con ID: {{pedidoID}}</h1>
+    <div class="carta">
+
+        <h2>Cliente: {{obtenerNombreCliente(pedido.clienteId)}}</h2>
+        <h3 class="info">Informacion del pedido</h3>
+        <p>{{pedido.descripcion}}</p>
+        <h3>Productos guardados:</h3>
+        @for (item of pedido.detalles; track $index )
+        {
+            <div class="detalles" >
+                <p>Producto: {{ obtenerNombreProducto(item.productoId) }}</p>
+                <p>Cantidad: {{ item.cantidad }}</p>
+              </div>
+        }
+        <p class="monto">Monto total: {{total}}</p>
+    </div>
+    <button (click)="irPedidos()" class="btn">Volver a seccion de pedidos</button>
+</section>

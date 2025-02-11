@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+
+<div class="cont-general">
+  
+    <!-- Botones -->
+    <div class="botones">
+      <button (click)="ircrearprodu()" class="btn">Agregar nuevo producto</button>
+      <button class="btn">Productos bajo en stock</button>
+    </div>
+  
+    <div class="cat-prod">
+  
+      <!-- Categorías -->
+      <div class="categorias">
+        <h2>Categorías</h2>
+        <ul>
+          @for (item of listaCategorias; track $index) {
+            <li>
+              <button class="btn-categoria" (click)="mostrarProductosPorCategoria(item.nombreCat)">
+                {{ item.nombreCat }}
+              </button>
+            </li>
+          }
+        </ul>
+      </div>
+  
+      <!-- Sección de Productos -->
+      <div class="productos">
+        <h2>Productos</h2>
+  
+        <!-- Mostrar productos -->
+        <div class="productos-lista">
+          @if (productosPorCategoria.length > 0) {
+            @for (item of productosPorCategoria; track $index) {
+
+                <div class="producto-card">
+                    <h3>{{ item.nombre }}</h3>
+                    <p>Precio: ${{ item.precio }}</p>
+                    <p>Stock: {{ item.stock }}</p>
+                    @if (item.id) {
+                      <button  class="btn-modificar"  [routerLink]="['/producto', item.id]">Modificar producto</button>
+                      <button (click)="deleteProdu(item.id)" class="btn-eliminar">Eliminar producto</button>
+                    }
+                   
+                  </div>
+            }
+          }
+        </div>
+  
+        <!-- Mensaje cuando no hay productos -->
+        @if (productosPorCategoria.length === 0) {
+          <p class="no-productos">No existen artículos para mostrar en esta categoría</p>
+        }
+      </div>
+  
+    </div>
+  </div>

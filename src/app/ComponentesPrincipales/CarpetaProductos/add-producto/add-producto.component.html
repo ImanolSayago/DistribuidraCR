@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+
+<div class="form-container">
+    <h2>Crear nuevo producto</h2>
+
+    <form
+    [formGroup]="formulario" (ngSubmit)="agregarProducto()">
+        <div class="form-group">
+            <label for="categoria">Categoría:</label>
+            <select formControlName="categoria" id="categoria" name="categoria" required>
+             
+                 @for (item of listacategorias; track $index) {
+                    <option >{{item.nombreCat}}</option> 
+                 }
+              
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="nombre">Nombre Producto:</label>
+            <input formControlName="nombre" type="text" id="nombre" name="nombre" required>
+        </div>
+
+        <div class="form-group">
+            <label for="stock">Cantidad stock:</label>
+            <input formControlName="stock" type="number" id="stock" name="stock">
+        </div>
+
+        <div class="form-group">
+            <label for="precio">Precio Producto:</label>
+            <input formControlName="precio" type="text" id="precio" name="precio" required>
+        </div>
+
+        <button  type="submit" class="btn">Cargar producto</button>
+        <button (click)="irproductos()" type="submit" class="btn">Volver a producto</button>
+    </form>
+</div>

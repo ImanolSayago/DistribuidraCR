@@ -1,0 +1,194 @@
+.cont-general {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+  }
+  
+  /* Estilos para los botones */
+  .botones {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 90%;
+    max-width: 710px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.btn {
+    padding: 12px 20px;
+    border: none;
+    background: #FF9800;
+    color: white;
+    font-size: 18px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+  
+.btn:hover {
+    background-color: #FF5722;
+    transform: scale(1.05);
+}
+
+.cat-pedidos {
+    display: flex;
+    gap: 40px;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 40px;
+    justify-content: space-between;
+}
+  
+.btn-categoria {
+    padding: 10px;
+    width: 100%;
+    border: 2px solid #FF9800;
+    background: #FFF;
+    color: #FF9800;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.3s, color 0.3s;
+}
+  
+.btn-categoria:hover {
+    background: #FF9800;
+    color: white;
+}
+  
+  /* Estilo para la lista de categorías */
+  .categorias {
+    width: 25%;
+    height: 30%;
+    background: #F3F4F6;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+  
+.categorias h2 {
+    font-size: 24px;
+    color: #37474F;
+    margin-bottom: 15px;
+}
+  
+.categorias ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+  
+.categorias li {
+    margin-bottom: 10px;
+}
+
+  
+  /* Estilos para la lista de pedidos */
+  .pedidos {
+    width: 70%;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px #90A4AE;
+  }
+  
+  .pedidos h2 {
+    font-size: 45px;
+    color: #37474F;
+    margin: 20px auto;
+  }
+  
+  .pedidos-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .pedido-card {
+    background: #ECEFF1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 10px;
+  }
+  
+  .pedido-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pedido-card h3 {
+    font-size: 20px;
+    color: #37474F;
+    margin-bottom: 10px;
+  }
+  
+  .pedido-card p {
+    font-size: 16px;
+    color: #607D8B;
+  }
+  
+  .pedido-card button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-detalles {
+    padding: 12px 20px;
+    background-color: #ffc107;
+    color: white;
+  }
+  
+  .btn-detalles:hover {
+    background-color: #e0a800;
+  }
+  
+  .btn-cambiar-estado {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .btn-cambiar-estado:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-eliminar {
+    padding: 12px 20px;
+    background-color: #FF5722;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn-eliminar:hover {
+    background-color: #E64A19;
+    transform: scale(1.05);
+  }
+  
+  /* Mensaje cuando no hay pedidos */
+  .no-pedidos {
+    text-align: center;
+    color: #FF5722;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+
+
+  
