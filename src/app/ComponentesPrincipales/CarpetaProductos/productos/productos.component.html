@@ -8,9 +8,27 @@
       <button class="btn">Productos bajo en stock</button>
     </div>
   
+   
+
     <div class="cat-prod">
   
       <!-- Categorías -->
+
+     
+
+          <div class="categorias">
+
+            <label for="">Ingrese una nueva categoria</label>
+            <input  type="text" [(ngModel)]="nuevacat">
+            <button class="btn2" (click)="agregarCategoria()">Agregar nueva categoria</button>
+          </div>
+
+         
+
+     
+      
+
+
       <div class="categorias">
         <h2>Categorías</h2>
         <ul>
@@ -22,7 +40,17 @@
             </li>
           }
         </ul>
+
+        <div class="eliminar">
+
+          <label for="">Eliminar categoria</label>
+          <input type="text" [(ngModel)]="catborrar">
+          <button (click)="borrarCategoria(catborrar)" class="btn2">Eliminar categoria</button>
+        </div>
+       
       </div>
+
+      
   
       <!-- Sección de Productos -->
       <div class="productos">

@@ -5,16 +5,20 @@ import { ProductosService } from '../../../services/productos.service';
 import { categoria } from '../../../Interface/categoria';
 import { CategoriasService } from '../../../services/categorias.service';
 import { Router, RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-productos',
   standalone: true,
-  imports: [NavbarComponent,RouterLink],
+  imports: [NavbarComponent,RouterLink,FormsModule],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css'
 })
 export class ProductosComponent implements OnInit{
 
+
+  catborrar:string = "";
+  nuevacat:string= "";
 
   rutas = inject(Router);
   //SERVICIOS//
@@ -36,6 +40,50 @@ export class ProductosComponent implements OnInit{
 
    this.traerProductos();
    this.traerCategorias();
+
+  }
+
+  agregarCategoria()
+  {
+    const categoria:categoria ={
+      nombreCat : this.nuevacat
+    }
+    this.servicioCategorias.addCategoria(categoria).subscribe({
+      next:()=>
+      {
+       
+        window.location.reload();
+      },
+      error:(err:Error)=>
+      {
+        console.log(err.message);
+      }
+    })
+  }
+
+  borrarCategoria(nombre:string){
+    var id = this.listaCategorias.find(e=> e.nombreCat.toLowerCase() === nombre.toLowerCase())?.id??0;
+
+    if(id!=0)
+    {
+      this.servicioCategorias.deleteCategoria(id).subscribe({
+        next:()=>
+        {
+          alert("Categoria borrada con exito");
+          window.location.reload();
+        },
+        error:(err:Error)=>
+        {
+          console.log(err.message);
+        }
+      })
+    }
+    else
+    {
+      alert("El nombre ingresado es incorrecto")
+      this.catborrar="";
+      console.log("No se encontro el id")
+    }
 
   }
 
@@ -95,6 +143,6 @@ export class ProductosComponent implements OnInit{
     this.rutas.navigate(["crearproducto"]);
   }
 
-  
+
 
 }

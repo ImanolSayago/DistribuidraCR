@@ -41,5 +41,11 @@ export class ProductosService {
     return this.http.put<productos>(url, producto);
   }
 
+  editStockProducto(id: number, stock: number): Observable<void> {
+    const url = `${this.apiURL}/editarstock/${id}/${stock}`; // URL actualizada
+
+    return this.http.put<void>(url, {}); // El segundo parametro es el body, como no envias nada, se envia un objeto vacio.
+  }
+
  
 }

@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { cliente } from '../../Interface/cliente';
 import { Router } from '@angular/router';
 import { NavbarComponent } from "../navbar/navbar.component";
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-form-cliente',
   standalone: true,
@@ -38,13 +38,36 @@ export class FormClienteComponent {
     this.clienteService.addCliente(this.cli).subscribe({
       next:()=>
       {
-        console.log("cliente cargado")
+        this.alertaClienteAdd()
         this.rutas.navigate(["clientes"])
       },
       error:(err:Error)=>
       {
+        this.alertaNoCreado()
         console.log(err.message);
       }
     })
   }}
+
+  alertaClienteAdd()
+  {
+    Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Cliente creado con exito",
+              showConfirmButton: false,
+              timer: 1200
+            });
+  }
+
+  alertaNoCreado()
+  {Swal.fire({
+    position: "top-end",
+    icon: "error",
+    title: "El cliente no se pudo crear",
+    showConfirmButton: false,
+    timer: 1200
+  });
+    
+  }
 }

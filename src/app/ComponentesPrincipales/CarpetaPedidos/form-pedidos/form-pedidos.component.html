@@ -8,10 +8,11 @@
         <option [value]="item.id">{{item.nombre}}</option>
       }
       </select>
+    
     </div>
   
     <div>
-      <label for="descripcion">Descripción:</label>
+      <label for="descripcion">Descripción(opcional):</label>
       <textarea id="descripcion" formControlName="descripcion"></textarea>
     </div>
   
@@ -23,9 +24,15 @@
           <option [value]="item.nombre">{{item.nombre}}</option>
         }
         </select>
+        @if (formulario.controls['productos'].getError('required')) {
+          <span class="requerido">*Campo requerido</span>
+      }
 
         <label for="cantidadprodu">Cantidad de productos:</label>
         <input formControlName="cantidadprodu" type="number" id="cantidadprodu"  name="cantidadprodu" required>
+        @if (formulario.controls['cantidadprodu'].getError('required')) {
+          <span class="requerido">*Campo requerido</span>
+      }
       </div>
     
   

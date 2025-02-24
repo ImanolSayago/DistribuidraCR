@@ -7,7 +7,6 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    
     margin-top: 30px;
 }
 
@@ -122,8 +121,6 @@ form .error-message {
 }
 
 
-
-
 .cont-cliente p{
     font-size: 20px;
     color: #37474F;
@@ -146,4 +143,17 @@ form .error-message {
 
 .btn-delete:hover {
     background-color: #E64A19;
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .botones, form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cont-cliente {
+        flex-direction: column;
+        align-items: stretch;
+    }
 }

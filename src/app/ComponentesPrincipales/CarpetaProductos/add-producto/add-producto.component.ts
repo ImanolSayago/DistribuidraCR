@@ -7,7 +7,7 @@ import { TmplAstSwitchBlock } from '@angular/compiler';
 import { categoria } from '../../../Interface/categoria';
 import { productos } from '../../../Interface/productos';
 import { Router } from '@angular/router';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-add-producto',
   standalone: true,
@@ -76,7 +76,7 @@ export class AddProductoComponent implements OnInit{
     this.serviceproducto.addProducto(producto).subscribe({
       next:()=>
       {
-        console.log("producto agregado con exito");
+       this.alertaProductoCreado()
       },
       error:(err:Error)=>
       {
@@ -88,5 +88,16 @@ export class AddProductoComponent implements OnInit{
   irproductos()
   {
     this.rutas.navigate(["productos"])
+  }
+
+  alertaProductoCreado()
+  {
+     Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Producto cargado con exito",
+          showConfirmButton: false,
+          timer: 1200
+        });
   }
 }

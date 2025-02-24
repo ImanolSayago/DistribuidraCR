@@ -1,0 +1,55 @@
+
+.resumen {
+    background-color: #f4f4f4;
+    margin: 80px auto; /* Agregado margen superior e inferior */
+    width: 80vw; /* Aumentado el ancho */
+    max-width: 1200px; /* Ancho máximo para pantallas grandes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px; /* Agregado padding interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra más sutil */
+}
+
+.resumen h1 {
+    font-size: 4.2em; /* Tamaño de fuente relativo */
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    color: #1E3A5F;
+    border-bottom: 2px solid #1E3A5F;/* Color de borde más oscuro */
+}
+
+.datos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.datos .info-datos {
+    background-color: #e0e0e0; /* Color de fondo más claro */
+    color: #37474F;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    flex: 1 1 300px; /* Permite que los elementos crezcan y se encojan */
+    min-width: 250px; /* Ancho mínimo para cada elemento */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Transición suave al hacer hover */
+}
+
+.datos .info-datos:hover {
+    transform: translateY(-5px); /* Eleva el elemento al hacer hover */
+}
+
+.datos p {
+    font-size: 1.7em; /* Tamaño de fuente relativo */
+    margin: 0;
+}
+
+.detalle{
+    
+    color: #FF9800;
+}

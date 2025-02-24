@@ -3,9 +3,8 @@
 <form [formGroup]="formulario" action="" (ngSubmit)="editProducto()">
 
         <h2>Editar el producto:{{produ.nombre}}</h2>
-
     <div>
-        <label id="precionuevo" for="precionuevo">Ingrese el nuevo precio</label>
+        <label id="precionuevo" for="precionuevo">Ingrese el nuevo precio/precio anterior</label>
         <input formControlName="precionuevo" type="number">
     </div>
 

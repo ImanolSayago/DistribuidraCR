@@ -20,6 +20,7 @@ import { productos } from '../../../Interface/productos';
 export class PedidoCardComponent implements OnInit{
 
   pedidoID:number=0;
+  
   servicepedidos = inject(PedidosService);
   serviceClientes= inject(ClientesService);
   serviceProductos= inject(ProductosService);
@@ -95,7 +96,7 @@ export class PedidoCardComponent implements OnInit{
 
   obtenerNombreCliente(id: number): string {
     const cliente = this.listClientes.find(c => c.id === id);
-    console.log("nombre",cliente?.nombre)
+    
     return cliente ? cliente.nombre : 'Cliente no encontrado';
   }
 

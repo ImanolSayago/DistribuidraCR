@@ -94,7 +94,7 @@ export class PedidoshomeComponent implements OnInit {
 
   obtenerNombreCliente(id: number): string {
     const cliente = this.listaclientes.find(c => c.id === id);
-    console.log("nombre",cliente?.nombre)
+    
     return cliente ? cliente.nombre : 'Cliente no encontrado';
   }
 

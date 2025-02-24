@@ -48,7 +48,8 @@
 }
 
 /* Estilo para la sección de Categorías */
-.categorias {
+.categorias{
+    
     width: 25%;
     height: 30%;
     background: #F3F4F6;
@@ -70,6 +71,47 @@
 
 .categorias li {
     margin-bottom: 10px;
+}
+
+
+.categorias label {
+    color: #37474F;
+    margin-bottom: 20px;
+    font-size: 19px;
+    text-align: center; /* Centrar el texto de la etiqueta */
+}
+
+.categorias input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border 0.3s;
+    margin: 5px;
+    width: 100%; /* O un ancho específico si no quieres que ocupe todo el ancho del contenedor */
+    box-sizing: border-box; /* Para que el padding no aumente el ancho total */
+}
+
+.btn2 {
+    padding: 10px 12px;
+    border: none;
+    background: #FF9800;
+    color: white;
+    font-size: 18px;
+    border-radius: 2px;
+    margin-top: 10px; /* Espacio entre el input y el botón */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.eliminar{
+    margin-top: 20px;
+}
+
+
+.btn2:hover {
+    background-color: #FF5722;
+    transform: scale(1.05);
 }
 
 .btn-categoria {
@@ -181,4 +223,26 @@
     font-size: 18px;
     font-weight: bold;
     margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+
+    
+    .cat-prod {
+        flex-direction: column; /* Apilar categorías y productos */
+        gap: 20px;
+    }
+
+    .categorias {
+        width: 100%; /* Categorías ocupan todo el ancho */
+        height: auto; /* Ajustar altura automáticamente */
+    }
+
+    .productos {
+        width: 100%; /* Productos ocupan todo el ancho */
+    }
+
+    .productos-lista {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Columnas más pequeñas */
+    }
 }

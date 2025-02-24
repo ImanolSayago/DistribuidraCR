@@ -14,24 +14,36 @@
                  }
               
             </select>
+            @if (formulario.controls['categoria'].getError('required')) {
+                <span class="requerido">*Campo requerido</span>
+            }
         </div>
 
         <div class="form-group">
             <label for="nombre">Nombre Producto:</label>
             <input formControlName="nombre" type="text" id="nombre" name="nombre" required>
+            @if (formulario.controls['nombre'].getError('required')) {
+                <span class="requerido">*Campo requerido</span>
+            }
         </div>
 
         <div class="form-group">
             <label for="stock">Cantidad stock:</label>
             <input formControlName="stock" type="number" id="stock" name="stock">
+            @if (formulario.controls['stock'].getError('required')) {
+                <span class="requerido">*Campo requerido</span>
+            }
         </div>
 
         <div class="form-group">
             <label for="precio">Precio Producto:</label>
             <input formControlName="precio" type="text" id="precio" name="precio" required>
+            @if (formulario.controls['precio'].getError('required')) {
+                <span class="requerido">*Campo requerido</span>
+            }
         </div>
 
-        <button  type="submit" class="btn">Cargar producto</button>
+        <button  type="submit" class="btn" [disabled]="formulario.invalid">Cargar producto</button>
         <button (click)="irproductos()" type="submit" class="btn">Volver a producto</button>
     </form>
 </div>

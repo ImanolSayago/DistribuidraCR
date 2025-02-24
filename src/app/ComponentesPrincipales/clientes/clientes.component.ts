@@ -4,7 +4,7 @@ import { ClientesService } from '../../services/clientes.service';
 import { cliente } from '../../Interface/cliente';
 import { Router } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-clientes',
   standalone: true,
@@ -50,7 +50,7 @@ export class ClientesComponent implements OnInit{
     if (confirm(`¿Seguro que querés eliminar a ${clienteEncontrado.nombre}?`)) {
       this.servicioClientes.deleteCliente(clienteEncontrado.id!).subscribe(() => {
         this.listaclientes = this.listaclientes.filter(c => c.id !== clienteEncontrado.id);
-        alert("Cliente eliminado con éxito.");
+        this.alertaEliminarCliente()
         this.formEliminar.reset();
       });
     }
@@ -79,11 +79,13 @@ export class ClientesComponent implements OnInit{
     this.servicioClientes.deleteCliente(id).subscribe({
       next:()=>
       {
+        
         window.location.reload();
-        alert("Cliente eliminado con exito");
+        
       },
       error:(err:Error)=>
       {
+        this.alertaErrorEliminarCliente()
         console.log(err.message);
       }
     })
@@ -91,5 +93,27 @@ export class ClientesComponent implements OnInit{
 
   ircrearclientes(){
     this.rutas.navigate(["crearCliente"]);
+  }
+
+  alertaErrorEliminarCliente()
+  {
+     Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "El cliente no se pudo eliminar",
+          showConfirmButton: false,
+          timer: 1200
+        });
+  }
+
+  alertaEliminarCliente()
+  {
+     Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Cliente eliminado",
+          showConfirmButton: false,
+          timer: 1200
+        });
   }
 }

@@ -1,7 +1,7 @@
 
 form {
     max-width: 400px;
-    height: 600px;
+    height: 650px;
     margin: 100px auto;
     padding: 20px;
     background-color: #ffffff;
@@ -89,4 +89,10 @@ button {
 /* Estilos para el hover del botón */
 button:hover:not(:disabled) {
     background-color: #E64A19;
+}
+
+.requerido {
+    color: red;
+    font-size: 18px;
+    margin-top: 5px;
 }

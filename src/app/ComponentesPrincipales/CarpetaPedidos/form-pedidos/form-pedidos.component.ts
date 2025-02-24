@@ -8,7 +8,7 @@ import { cliente } from '../../../Interface/cliente';
 import { ClientesService } from '../../../services/clientes.service';
 import { ProductosService } from '../../../services/productos.service';
 import { DetallePedido } from '../../../Interface/DetallePedido';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-form-pedidos',
   standalone: true,
@@ -57,8 +57,7 @@ export class FormPedidosComponent implements OnInit {
 
     // Buscar el producto en la lista
     const productoEncontrado = this.listaProductos.find(e => e.nombre === nombreProducto);
-console.log(productoEncontrado?.nombre)
-console.log(productoEncontrado?.id)
+    
     if (productoEncontrado) {
   
     const detalle: DetallePedido = {
@@ -67,11 +66,25 @@ console.log(productoEncontrado?.id)
         ? this.formulario.value.cantidadprodu 
         : 1
     };
-    detalle.productoId=productoEncontrado.id??0;
 
-    //esto para filtrar los productos elejidos//
-   
-   this.listaproductoselejidos.push(detalle);
+    if(productoEncontrado.stock>=detalle.cantidad)
+    {
+
+      detalle.productoId=productoEncontrado.id??0;
+      this.listaproductoselejidos.push(detalle);
+
+      this.alertaProductoCargado()
+
+      this.editarStock(detalle.productoId,detalle.cantidad);
+     
+    }
+    else{
+      this.alertaProductoSinStock()
+      
+    }
+    
+
+  
     
     } else {
     console.log("Producto no encontrado");
@@ -91,19 +104,10 @@ console.log(productoEncontrado?.id)
           detalles:this.listaproductoselejidos
         }
 
-        console.log("detalles del pedido",pedido.detalles);
-        console.log("descripcion del pedido",pedido.descripcion);
-        console.log("cliente id",pedido.clienteId);
-        console.log("estado",pedido.estado);
-        console.log("fecha pedido",pedido.fecha);
-        console.log(this.listaproductoselejidos);
-        console.log(this.formulario.value.cantidadprodu)
-
-
         this.servicePedido.addPedidos(pedido).subscribe({
           next:()=>
           {
-            console.log("pedido cargado correctamente");
+           this.alertaPedidoCargado()
             this.listaproductoselejidos = [];
           },
           error:(err:Error)=>
@@ -116,7 +120,19 @@ console.log(productoEncontrado?.id)
       }
     }
   
-
+    editarStock(id:number, stock:number)
+    {
+      this.serviceProducto.editStockProducto(id,stock).subscribe({
+        next:()=>
+        {
+          
+        },
+        error:(err:Error)=>
+        {
+          console.log(err.message);
+        }
+      })
+    };
 
   
 
@@ -143,6 +159,39 @@ console.log(productoEncontrado?.id)
         console.log(err.message);
       }
     })
+  }
+
+  alertaPedidoCargado()
+  {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Pedido cargado con exito",
+      showConfirmButton: false,
+      timer: 1200
+    });
+  }
+
+  alertaProductoCargado()
+  {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Producto cargado al pedido",
+      showConfirmButton: false,
+      timer: 1200
+    });
+  }
+
+  alertaProductoSinStock()
+  {
+    Swal.fire({
+      position: "top-end",
+      icon: "error",
+      title: "Producto sin stock",
+      showConfirmButton: false,
+      timer: 1200
+    });
   }
 
 }
