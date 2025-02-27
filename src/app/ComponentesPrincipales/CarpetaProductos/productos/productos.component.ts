@@ -143,6 +143,11 @@ export class ProductosComponent implements OnInit{
     this.rutas.navigate(["crearproducto"]);
   }
 
+  irbajostock()
+  {
+    this.rutas.navigate(["bajostock"]);
+  }
+
 
 
 }

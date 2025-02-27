@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<section>
+
+    <section class="input-section">
+        <div class="input-container">
+            <label for="cantidadBaja">Ingrese la cantidad baja</label>
+            <input type="number" [(ngModel)]="cantidadBaja" id="cantidadBaja" class="input-field">
+            <button (click)="filtrarProductos(cantidadBaja)" class="btn">Filtrar productos</button>
+        </div>
+        
+    </section>
+       
+    
+
+     <!-- Sección de Productos -->
+     <div class="productos">
+        <h2>Productos bajo en stock</h2>
+  
+        <!-- Mostrar productos -->
+        <div class="productos-lista">
+          @if (listaproductos.length > 0) {
+            @for (item of listafiltrada; track $index) {
+
+                <div class="producto-card">
+                    <h3>{{ item.nombre }}</h3>
+                    <p>Precio: ${{ item.precio }}</p>
+                    <p>Stock: {{ item.stock }}</p>
+                   
+                  </div>
+            }
+          }
+        </div>
+        <!-- Mensaje cuando no hay productos -->
+        @if (listafiltrada.length === 0) {
+          <p class="no-productos">No existen artículos para mostrar en esta categoría</p>
+        }
+      </div>
+
+</section>

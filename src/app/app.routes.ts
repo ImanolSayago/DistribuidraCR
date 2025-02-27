@@ -11,6 +11,7 @@ import { FormPedidosComponent } from './ComponentesPrincipales/CarpetaPedidos/fo
 import { PedidoshomeComponent } from './ComponentesPrincipales/CarpetaPedidos/pedidoshome/pedidoshome.component';
 import { PedidoCardComponent } from './ComponentesPrincipales/CarpetaPedidos/pedido-card/pedido-card.component';
 import { EditProductoComponent } from './ComponentesPrincipales/CarpetaProductos/edit-producto/edit-producto.component';
+import { BajoStockComponent } from './ComponentesPrincipales/CarpetaProductos/bajo-stock/bajo-stock.component';
 
 export const routes: Routes = [
     {
@@ -32,6 +33,9 @@ export const routes: Routes = [
     },
     {
         path:"productos",component:ProductosComponent
+    },
+    {
+        path:"bajostock", component:BajoStockComponent
     }
     ,
     
