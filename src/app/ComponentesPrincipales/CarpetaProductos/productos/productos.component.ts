@@ -69,7 +69,6 @@ export class ProductosComponent implements OnInit{
       this.servicioCategorias.deleteCategoria(id).subscribe({
         next:()=>
         {
-          alert("Categoria borrada con exito");
           window.location.reload();
         },
         error:(err:Error)=>

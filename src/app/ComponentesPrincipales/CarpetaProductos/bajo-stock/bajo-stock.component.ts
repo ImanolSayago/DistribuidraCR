@@ -43,6 +43,7 @@ traerProductos()
 
 filtrarProductos(cantidad:number)
 {
+  this.listafiltrada=[];
   for(var i=0;i<this.listaproductos.length;i++)
   {
     if(this.listaproductos[i].stock<=cantidad)
