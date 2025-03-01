@@ -4,7 +4,7 @@ import { ProductosService } from '../../../services/productos.service';
 import { productos } from '../../../Interface/productos';
 import { NavbarComponent } from "../../navbar/navbar.component";
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-edit-producto',
   standalone: true,
@@ -59,7 +59,7 @@ export class EditProductoComponent implements OnInit{
     this.serviceProducto.editProducto(this.produ).subscribe({
       next:()=>
       {
-        console.log("Producto editado con exito");
+       this.productoEditado();
       },
       error:(err:Error)=>
       {
@@ -68,5 +68,14 @@ export class EditProductoComponent implements OnInit{
     })
   }
 
-
+ productoEditado()
+    {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Producto editado",
+        showConfirmButton: false,
+        timer: 1200
+      });
+    }
 }

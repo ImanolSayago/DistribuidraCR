@@ -3,7 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { Admin } from '../../../Interface/admin';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-inicio-sesion',
   standalone: true,
@@ -47,13 +47,33 @@ export class InicioSesionComponent {
         },
         (error) => {
           // Aquí manejamos errores si la API falla
-          console.error('Error en la solicitud de login', error);
-          alert('Error en la solicitud de login');
+         this.LoginFailed();
         }
       );
     } else {
       // Si el formulario no es válido, mostramos un mensaje
-      alert('Por favor, completa todos los campos.');
+     this.camposNoLlenos();
     }
   }
+
+    LoginFailed()
+    {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Usuario o contraseña incorrectas",
+        showConfirmButton: false,
+        timer: 1200
+      });
+    }
+    camposNoLlenos()
+    {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Complete todos los campos",
+        showConfirmButton: false,
+        timer: 1200
+      });
+    }
 }
