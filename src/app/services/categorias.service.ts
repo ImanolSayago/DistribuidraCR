@@ -11,7 +11,7 @@ export class CategoriasService {
 
   constructor() { }
   http= inject(HttpClient);
-  private apiURL= "https://www.crdistribuidora.com/categoria";
+  private apiURL= "https://www.crdistribuidora.com/api/categoria";
 
   getCategorias():Observable<categoria[]>
   {

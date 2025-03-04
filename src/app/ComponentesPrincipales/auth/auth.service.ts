@@ -10,7 +10,7 @@ export class AuthService {
 
   constructor() { }
 
-  apiURL = "https://www.crdistribuidora.com/admin/login"
+  apiURL = "https://www.crdistribuidora.com/api/admin/login"
 
   isLogin:boolean = false;
 

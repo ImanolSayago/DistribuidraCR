@@ -11,7 +11,7 @@ export class PedidosService {
   constructor() { }
 
   http = inject(HttpClient);
-  apiURL = "https://www.crdistribuidora.com/pedidos";
+  apiURL = "https://www.crdistribuidora.com/api/pedidos";
 
   addPedidos(pedido: pedido):Observable<pedido>
   {

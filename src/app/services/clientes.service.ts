@@ -9,7 +9,7 @@ import { cliente } from '../Interface/cliente';
 export class ClientesService {
 
   http = inject(HttpClient);
-  apiURL= "https://www.crdistribuidora.com/clientes"
+  apiURL= "https://www.crdistribuidora.com/api/clientes"
   constructor() { }
 
   getClientes ():Observable<cliente[]>
@@ -20,7 +20,7 @@ export class ClientesService {
 
   addCliente(cli: cliente):Observable<cliente>
   {
-    const url = "https://www.crdistribuidora.com/clientes/agregar"
+    const url = "https://www.crdistribuidora.com/api/clientes/agregar"
     return this.http.post<cliente>(url,cli);
   }
 

@@ -10,7 +10,7 @@ export class ProductosService {
 
   constructor() { }
   http = inject(HttpClient);
-  apiURL = "https://www.crdistribuidora.com/productos"
+  apiURL = "https://www.crdistribuidora.com/api/productos"
 
   getProductos():Observable<productos[]>{
     const url= `${this.apiURL}/traer`;

@@ -68,7 +68,7 @@ export class PedidoshomeComponent implements OnInit {
       next:()=>
       {
        
-        this.rutas.navigate(["pedidos"]);
+        window.location.reload();
       },
       error:(err:Error)=>
       {
@@ -82,7 +82,7 @@ export class PedidoshomeComponent implements OnInit {
     this.servicePedidos.actualizarEstado(id,"entregado").subscribe({
       next:()=>
       {
-        this.rutas.navigate(["pedidos"]);
+        window.location.reload();
       },
       error:(err:Error)=>
       {

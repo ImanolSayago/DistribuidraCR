@@ -52,7 +52,7 @@ export class ProductosComponent implements OnInit{
       next:()=>
       {
        
-        this.rutas.navigate(["productos"]);
+        window.location.reload();
       },
       error:(err:Error)=>
       {
@@ -69,7 +69,7 @@ export class ProductosComponent implements OnInit{
       this.servicioCategorias.deleteCategoria(id).subscribe({
         next:()=>
         {
-          this.rutas.navigate(["productos"])
+          window.location.reload();
         },
         error:(err:Error)=>
         {
@@ -127,7 +127,7 @@ export class ProductosComponent implements OnInit{
       {
         next:()=>{
           console.log("producto eliminado");
-          this.rutas.navigate(["productos"])
+          window.location.reload();
         },
         error:(err: Error)=>
         {
