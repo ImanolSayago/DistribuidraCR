@@ -9,6 +9,8 @@ import { ClientesService } from '../../../services/clientes.service';
 import { ProductosService } from '../../../services/productos.service';
 import { DetallePedido } from '../../../Interface/DetallePedido';
 import Swal from 'sweetalert2'
+import { CategoriasService } from '../../../services/categorias.service';
+import { categoria } from '../../../Interface/categoria';
 @Component({
   selector: 'app-form-pedidos',
   standalone: true,
@@ -21,8 +23,14 @@ export class FormPedidosComponent implements OnInit {
 
   listaproductoselejidos:DetallePedido[]=[];
 
+  listaproductosfiltrada:productos[]=[];
+
+  listacategorias: categoria[]=[];
+
   ngOnInit(): void {
    this.traerClientesYProductos();
+
+   this.traerCategorias();
 
   }
 
@@ -43,10 +51,13 @@ export class FormPedidosComponent implements OnInit {
   servicePedido = inject(PedidosService);
   serviceCliente = inject(ClientesService);
   serviceProducto= inject(ProductosService);
+  serviceCategoria= inject(CategoriasService);
+
 
   formulario = this.fb.nonNullable.group({
     cliente:[0, Validators.required], // Cliente obligatorio
       descripcion: ['', Validators.maxLength(255)], // Descripción opcional
+      categoria:["",Validators.required],
       productos:["",Validators.required],
       cantidadprodu:[1,Validators.required]
   })
@@ -82,13 +93,23 @@ export class FormPedidosComponent implements OnInit {
       this.alertaProductoSinStock()
       
     }
-    
-
-  
-    
     } else {
     console.log("Producto no encontrado");
   }
+  }
+
+  traerCategorias()
+  {
+    this.serviceCategoria.getCategorias().subscribe({
+      next:(lista)=>
+      {
+        this.listacategorias=lista;
+      },
+      error:(err:Error)=>
+      {
+        console.log(err.message);
+      }
+    })
   }
 
   enviarPedido() {
@@ -118,6 +139,12 @@ export class FormPedidosComponent implements OnInit {
       } else {
         console.log('Formulario inválido');
       }
+    }
+
+    filtrarporcategoria() {
+      this.listaproductosfiltrada = this.listaProductos.filter(
+        producto => producto.categoriaNombre === this.formulario.value.categoria
+      );
     }
   
     editarStock(id:number, stock:number)

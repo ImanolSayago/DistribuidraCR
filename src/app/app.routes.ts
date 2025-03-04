@@ -26,28 +26,39 @@ export const routes: Routes = [
         canActivate:[authGuardFn]
     },
     {
-        path:"clientes", component:ClientesComponent
+        path:"clientes", component:ClientesComponent,
+        canActivate:[authGuardFn]
+        
     },
     {
-        path:"crearCliente",component:FormClienteComponent
+        path:"crearCliente",component:FormClienteComponent,
+        canActivate:[authGuardFn]
+        
     },
     {
-        path:"productos",component:ProductosComponent
+        path:"productos",component:ProductosComponent,
+        canActivate:[authGuardFn]
     },
     {
-        path:"bajostock", component:BajoStockComponent
+        path:"bajostock", component:BajoStockComponent,
+        canActivate:[authGuardFn]
     }
     ,
     
     {
-        path:"crearproducto",component:AddProductoComponent
+        path:"crearproducto",component:AddProductoComponent,
+        canActivate:[authGuardFn]
     },
     {
-        path:"crearpedido" ,component:FormPedidosComponent
+        path:"crearpedido" ,component:FormPedidosComponent,
+        canActivate:[authGuardFn]
     },
     {
-        path:"pedidos",component:PedidoshomeComponent
+        path:"pedidos",component:PedidoshomeComponent,
+        canActivate:[authGuardFn]
     },
-    { path: 'pedido/:id', component: PedidoCardComponent },
-    { path: 'producto/:id', component: EditProductoComponent }
+    { path: 'pedido/:id', component: PedidoCardComponent ,
+        canActivate:[authGuardFn]
+    },
+    { path: 'producto/:id', component: EditProductoComponent ,canActivate:[authGuardFn]}
 ];

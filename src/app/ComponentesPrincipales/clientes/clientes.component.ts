@@ -80,7 +80,7 @@ export class ClientesComponent implements OnInit{
       next:()=>
       {
         
-        window.location.reload();
+        this.rutas.navigate(["clientes"]);
         
       },
       error:(err:Error)=>

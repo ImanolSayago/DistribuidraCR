@@ -67,8 +67,8 @@ export class PedidoshomeComponent implements OnInit {
     this.servicePedidos.deletePedido(id).subscribe({
       next:()=>
       {
-        console.log("pedido eliminado");
-        window.location.reload();
+       
+        this.rutas.navigate(["pedidos"]);
       },
       error:(err:Error)=>
       {
@@ -82,8 +82,7 @@ export class PedidoshomeComponent implements OnInit {
     this.servicePedidos.actualizarEstado(id,"entregado").subscribe({
       next:()=>
       {
-        console.log("pedido cambiado");
-        window.location.reload();
+        this.rutas.navigate(["pedidos"]);
       },
       error:(err:Error)=>
       {

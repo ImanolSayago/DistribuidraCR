@@ -17,10 +17,21 @@
     </div>
   
     <h3>Agregar producto al pedido</h3>
+
+    <div>
+      <label for="categoria">Buscar por categoria</label>
+      <select (change)="filtrarporcategoria()" formControlName="categoria" id="categoria">
+        @for (item of listacategorias; track $index) {
+          <option [value]="item.nombreCat">{{item.nombreCat}}</option>
+        }
+      </select>
+    
+    </div>
+
     <div>
         <label for="productos">Producto:</label>
         <select id="productos" formControlName="productos" type="text" required>
-        @for (item of listaProductos; track $index) {
+        @for (item of listaproductosfiltrada; track $index) {
           <option [value]="item.nombre">{{item.nombre}}</option>
         }
         </select>
